@@ -1,39 +1,40 @@
 package app;
-import java.sql.SQLException;
 
 import framework.*;
+
 public class Student extends User{
 	private String course;
 	
 	public Student(String name, String registration, String course) {
 		setName(name);
 		setRegistration(registration);
-		this.course = course;
+		setCourse(course);
 	}	
 	
+	public void setCourse(String course){
+		this.course = course;
+	}
+	
 	@Override
-	public void create(String name, String registration) {
-		Database.insertUser(name, registration);
+	public void create() {
+		System.out.println("Usuário cadastrado com sucesso");
 	}
 
 	@Override
-	public void delete(int idUser) {
-		Database.deleteUser(idUser);
+	public void delete() {
+		System.out.println("Usuário deletado com sucesso");
 	}
 
 	@Override
-	public boolean update(int idUser, String name, String registration) {
-		Database.updateUser(idUser, name, registration);
+	public boolean update() {
+		System.out.println("Usuário atualizado com sucesso");
 		return true;
 	}
 
 	@Override
 	public void visualize() {
-		try {
-			Database.viewTableUser();
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
+		System.out.println("Name: " + getName() + " Registration: " + 
+				   getRegistration() + " Course: " + course);
 	}
 
 }

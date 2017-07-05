@@ -1,27 +1,32 @@
 package app;
-import java.sql.SQLException;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import framework.*;
 
 public class Application {
 
 	public static void main(String[] args) {
-		try {
-			Student student = new Student();
-			
-			student.create("abcd", "12345", "engenharia de software");
-			
-			
-			Database.addFieldToUser("abcd", "int");
-			Student mat = new Student(nome, 1442, soft);
-			mat.create());
-			
-			Database.insertResource("sala", "");
-			
-			Database.viewTableUser();
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
+		User ze = new Student("Zé", "131313", "Ciências Políticas");
+		ze.create();
+		
+		User paulo = new Student("Paulo Markes", "12345", "Teatro");
+		paulo.create();
+		
+		Resource room1 = new ClassRoom("Sala 1", "Sala dedicada a software", 5, 20);
+		room1.save();
+		
+		Resource room2 = new ClassRoom("Sala 2", "Sala dedicada a teatro", 6, 30);
+		room2.save();
+
+		List <User> users = new ArrayList<>();
+		users.add(ze);
+		users.add(paulo);
+		
+		Allocator.allocate(room1, users);
+		
+		
 	}
 
 }
