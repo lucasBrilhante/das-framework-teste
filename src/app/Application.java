@@ -25,7 +25,7 @@ public class Application {
 		users.add(paulo);
 		
 		Allocator.allocate(room1, users);
-		
+		Allocator.visualize();
 		
 	}
 
