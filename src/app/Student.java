@@ -3,7 +3,14 @@ import java.sql.SQLException;
 
 import framework.*;
 public class Student extends User{
-
+	private String course;
+	
+	public Student(String name, String registration, String course) {
+		setName(name);
+		setRegistration(registration);
+		this.course = course;
+	}	
+	
 	@Override
 	public void create(String name, String registration) {
 		Database.insertUser(name, registration);
